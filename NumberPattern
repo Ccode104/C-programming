@@ -1,0 +1,42 @@
+/* Print a pattern of numbers from  to  as shown below. Each of the numbers is separated by a single space.
+
+                            4 4 4 4 4 4 4  
+                            4 3 3 3 3 3 4   
+                            4 3 2 2 2 3 4   
+                            4 3 2 1 2 3 4   
+                            4 3 2 2 2 3 4   
+                            4 3 3 3 3 3 4   
+                            4 4 4 4 4 4 4   
+*/
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int main() 
+{
+
+    int n,row,col,i,j,arr[2000][2000];
+    scanf("%d", &n);
+      //Generate the pattern
+      for(j=0;j<n;j++)
+      {
+          for(i=0;i<(2*(n-j)-1);i++)
+          {
+              arr[j][i+j]=n-j;
+              arr[(2*n-2-j)][i+j]=n-j;
+              arr[i+j][(2*n-2-j)]=n-j;
+              arr[i+j][j]=n-j;
+          }
+      }
+      
+    //Print the pattern
+    for(row=0;row<2*n-1;row++)
+      {
+          for(col=0;col<2*n-1;col++)
+          {
+              printf("%d ",arr[row][col]);
+          }
+          printf("\n");
+      }
+    return 0;
+}
