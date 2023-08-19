@@ -1,0 +1,27 @@
+/*
+create an array of size  dynamically, and read the values from stdin. Iterate the array calculating the sum of all elements. Print the sum and free the memory where the array is stored.
+*/
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int sum,n,i;
+    int *arr;
+    
+    scanf("%d",&n);//Input size of array
+    
+    arr=(int*)malloc(n*sizeof(int));//Dynamic memory allocation
+    
+    sum=0;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);//Input the numbers
+        sum=sum+arr[i];//Calculate sum
+    }
+    printf("%d",sum);
+    free(arr);   
+    return 0;
+}
